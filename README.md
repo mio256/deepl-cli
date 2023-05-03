@@ -13,6 +13,15 @@ DeepL-CLI
 ## Usage
 
 ```sh
+$ sh setup.sh
+```
+
+or
+
+```sh
+# set `DEEPL_TOKEN`
+$ vim .env
+
 $ python3 -m venv venv
 $ . ./venv/bin/activate
 $ pip install --upgrade pip
