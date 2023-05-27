@@ -4,11 +4,8 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 
-while True:
-    text = input('>')
-    if text == 'exit':
-        break
 
+def translate(text: str) -> str:
     if re.search(r'[ぁ-ん]+|[ァ-ヴー]+|[一-龠]+', text):
         source_lang = 'JA'
         target_lang = 'EN'
@@ -23,5 +20,4 @@ while True:
         "target_lang": target_lang
     }
 
-    response = requests.post("https://api-free.deepl.com/v2/translate", data=params)
-    print(response.json()['translations'][0]['text'])
+    return requests.post("https://api-free.deepl.com/v2/translate", data=params).json()['translations'][0]['text']
